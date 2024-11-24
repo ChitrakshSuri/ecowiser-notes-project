@@ -2,16 +2,28 @@
   width: 100%;
   line-height: 100px;
   background-color: #457544;
-  /* background-color: #386641; */
-  /* background-color: #eae4d0; */
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 50px;
+  padding: 0 50px;
   color: white;
   height: 72px;
 }
+
 .header img {
   height: 50px;
   border-radius: 50%;
+}
+
+.header .about {
+  color: black;
+  font-family: "Whirly Birdie", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1.2rem; 
+  transition: font-size 0.3s ease-in-out; 
+}
+
+.header .about:hover {
+  font-size: 1.4rem; 
 }

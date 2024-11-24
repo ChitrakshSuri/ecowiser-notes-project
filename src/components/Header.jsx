@@ -4,12 +4,17 @@ import "./Header.css";
 
 const Header = () => {
   return (
-    <>
-      <div className="header">
-        <img src={logo} alt="logo"/>
-        <div>Eco Keep</div>
-      </div>
-    </>
+    <div className="header">
+      <img src={logo} alt="logo" />
+      <a
+        href="https://wiser.eco/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="about"
+      >
+        About
+      </a>
+    </div>
   );
 };
 
