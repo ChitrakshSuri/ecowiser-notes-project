@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from '@mui/material/Button';
-import AddIcon from '@mui/icons-material/Add';
-import "./CreateNote.css"
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+import "./CreateNote.css";
 
 const Note = (props) => {
   const [isExpand, setIsExpand] = useState(false);
@@ -40,6 +40,7 @@ const Note = (props) => {
   return (
     <>
       <div className="main_note" onDoubleClick={backToOriginal}>
+        <div className="create-note-heading">Create a New Note </div>
         <form>
           {isExpand ? (
             <input
@@ -54,7 +55,7 @@ const Note = (props) => {
 
           <br />
           <textarea
-            placeholder="Write a note...."
+            placeholder="Take a note..."
             rows=""
             coloum="1"
             name="content"

@@ -1,16 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Whirly+Birdie&display=swap");
+@import url("https://fonts.cdnfonts.com/css/whirly-birdie");
+
 .main_note {
   width: 500px;
   padding: 15px 10px 5px 10px;
   margin: 20px auto;
+  height: auto;
+  /* background-color: red; */
+}
+.create-note-heading {
+  margin-top: 70px;
+  height: auto;
+  font-family: "Whirly Birdie", sans-serif;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #344e41;
 }
 
 form {
-  min-height: 50px;
-  color: #ecf0f1;
-  padding: 15px 10px 5px 10px;
-  box-shadow: 3px 5px 15px -5px rgba(0, 0, 0, 0.5);
+  color: #6b8e23;
+  padding: 0 15px;
   border-radius: 10px;
+  border: 2px solid rgba(167, 201, 87, 0.5);
   position: relative;
+  margin: 0;
+
+  /* Glassmorphism effect */
+  background: rgba(245, 245, 220, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-family: "Whirly Birdie", cursive;
 }
 
 input {
@@ -22,6 +44,8 @@ input {
   font-size: 1.5rem;
   margin: 10px 0;
   font-weight: bold;
+  color: #3c763d;
+  font-family: "Jost", sans-serif;
 }
 
 textarea {
@@ -31,35 +55,37 @@ textarea {
   border: none;
   outline: none;
   font-size: 1rem;
+  color: #3c763d;
+  font-family: "Jost", sans-serif;
   margin: 10px 0;
 }
 
 .MuiButton-root {
   width: 30px;
-  height: 50px;
+  height: 60px;
   position: absolute;
   bottom: -28px;
-  left: 400px;
+  left: 430px;
   cursor: pointer;
-  background-color: #fff !important;
+  background-color: #fefae0 !important;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.5);
   border-radius: 50% !important;
 }
 
 .MuiButton-root .plus_sign {
-  font-size: 45px !important;
+  font-size: 30px !important;
   font-weight: 900;
-  color: #f4b400;
+  color: #457544;
   cursor: pointer;
   z-index: 222;
   background: transparent;
 }
 
 .MuiButton-root:hover {
-  background: #f4b400 !important;
+  background: #457544 !important;
 }
 
 .MuiButton-root:hover .plus_sign {
-  color: #fff;
+  color: #fefae0;
   background: transparent;
 }
