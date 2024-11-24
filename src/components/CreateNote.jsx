@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
-import Button from "@material-ui/core/Button";
-import AddIcon from "@material-ui/icons/Add";
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import "./CreateNote.css"
 
 const Note = (props) => {
   const [isExpand, setIsExpand] = useState(false);

@@ -1,6 +1,5 @@
-import React from "react";
-import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import Button from "@material-ui/core/Button";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import "./Note.css";
 
 const Note = (props) => {
   const deleteNote = () => {
@@ -23,4 +22,3 @@ const Note = (props) => {
 };
 
 export default Note;
-
