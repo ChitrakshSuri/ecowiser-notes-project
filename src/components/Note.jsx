@@ -3,8 +3,9 @@ import "./Note.css";
 
 const Note = (props) => {
   const deleteNote = () => {
-    alert("delete it now");
-    props.deleteItem(props.id);
+    if (window.confirm("Are you sure you want to delete this note?")) {
+      props.deleteItem(props.id);
+    }
   };
 
   return (

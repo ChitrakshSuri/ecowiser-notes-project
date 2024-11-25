@@ -22,6 +22,10 @@ const Note = (props) => {
   };
 
   const addEvent = () => {
+    if (!note.title || !note.content) {
+      alert("Please fill out both the title and content.");
+      return;
+    }
     props.passNote(note);
     setNotes({
       title: "",

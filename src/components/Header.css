@@ -16,14 +16,14 @@
 }
 
 .header .about {
-  color: black;
+  color: #fefae0;
   font-family: "Whirly Birdie", sans-serif;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.2rem; 
-  transition: font-size 0.3s ease-in-out; 
+  font-size: 1.2rem;
+  transition: font-size 0.3s ease-in-out;
 }
 
 .header .about:hover {
-  font-size: 1.4rem; 
+  font-size: 1.4rem;
 }
