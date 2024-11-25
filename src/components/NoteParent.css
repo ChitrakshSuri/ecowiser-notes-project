@@ -1,3 +1,40 @@
-div{
-    height: 100vh;
+div {
+  height: 100vh;
+  /* background-color: #ECF39E; */
+}
+
+.carousel {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap; /* Allows notes to align neatly */
+  justify-content: center;
+  gap: 16px;
+  height: auto;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  height: auto;
+}
+
+.pagination-controls button {
+  background-color: #344e41;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.pagination-controls button:hover {
+  background-color: #6b8e23;
+}
+
+.pagination-controls span {
+  font-size: 1.2em;
+  margin: 0 10px;
 }

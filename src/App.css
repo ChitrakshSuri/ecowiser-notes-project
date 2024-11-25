@@ -10,5 +10,16 @@
   padding: 0;
   margin: 0;
   font-family: "Josefin Sans", "Arial Narrow", Arial, sans-serif;
-
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background-color: #fefae0;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #37531f;
+  border-radius: 50px;
+  height: 100px;
+  border: #ECF39E 1px solid;
 }
