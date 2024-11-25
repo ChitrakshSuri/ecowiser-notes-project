@@ -7,7 +7,6 @@
   ); /* Light background with transparency (glassmorphism effect) */
   backdrop-filter: blur(10px); /* Glassmorphism effect */
   -webkit-backdrop-filter: blur(10px);
-  min-height: 270px;
   height: auto;
   border-radius: 10px; /* Rounded corners to match the form */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08); /* Softer shadow */
@@ -78,9 +77,9 @@
 
 .pin-btn .MuiSvgIcon-root {
   /* color: #ffcc00;  */
-  color: grey; 
+  color: grey;
 }
 
 .pin-btn .MuiSvgIcon-root.pinned {
-  color: maroon; 
+  color: maroon;
 }
