@@ -40,7 +40,7 @@
   margin-right: 10px;
   color: #3c763d;
   border: none;
-  background: transparent; 
+  background: transparent;
   cursor: pointer;
 }
 
@@ -51,5 +51,36 @@
 }
 
 .note .btn:hover .deleteIcon {
-  color: brown; /* Change icon color on hover */
+  color: brown;
+}
+
+.note-actions {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+
+.pin-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.deleteIcon {
+  color: #3c763d;
+}
+
+.pin-btn .MuiSvgIcon-root {
+  /* color: #ffcc00;  */
+  color: grey; 
+}
+
+.pin-btn .MuiSvgIcon-root.pinned {
+  color: maroon; 
 }
