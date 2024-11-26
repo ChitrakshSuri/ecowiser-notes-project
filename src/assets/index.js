@@ -1,2 +1,3 @@
 import ecowiserLogo from "./ecowiser.jpeg";
-export { ecowiserLogo };
+import DownArrow from "./DownArrow.svg";
+export { ecowiserLogo, DownArrow };

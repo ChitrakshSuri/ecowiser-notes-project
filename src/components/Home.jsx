@@ -1,15 +1,20 @@
 import React from "react";
 import "./Home.css";
-{
-  /* <link href="https://fonts.googleapis.com/css2?family=Whirly+Birdie&display=swap" rel="stylesheet"> */
-}
+import DownArrow from "../assets/DownArrow.svg"
 
 function Home() {
+  const scrollToNextSection = () => {
+    window.scrollTo({
+      top: window.innerHeight, // Scroll by the height of the viewport
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div className="home-cont">
       <div className="company-data-cont">
         <div className="company-name">Eco Notes.</div>
-        <div className="company-info ">
+        <div className="company-info">
           Eco Notes is an intuitive note-taking platform designed to simplify
           your organization and productivity. With features like categorization,
           real-time syncing, and an eco-friendly approach, it empowers users to
@@ -18,6 +23,9 @@ function Home() {
           you organized while staying aligned with sustainable values.
         </div>
       </div>
+      <button className="down-arrow-btn" onClick={scrollToNextSection}>
+      <img className="down-arrow-btn" src={DownArrow} alt="" />
+      </button>
     </div>
   );
 }
