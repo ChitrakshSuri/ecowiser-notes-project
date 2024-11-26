@@ -1,6 +1,6 @@
 .note {
-  /* background: rgba(245, 245, 220, 0.1);  */
-  background-color: #f7f4e0;
+  background: rgba(245, 245, 220, 0.1); 
+  /* background-color: #f7f4e0; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   height: auto;
@@ -100,7 +100,9 @@
 }
 
 .note.pinned {
-  background-color: #efd9ce;
+  /* background-color: #efd9ce; */
+  background-color: #f7f4e0;
+
 }
 .note.pinned h1 {
   color: #2f4f5e;
