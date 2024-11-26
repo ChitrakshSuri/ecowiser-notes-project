@@ -44,7 +44,7 @@
   white-space: pre-wrap;
   word-wrap: break-word;
   /* color: #6b8e23; */
-    color: #5e503f;
+  color: #5e503f;
 
   font-family: "Jost", sans-serif;
 }
@@ -120,10 +120,17 @@
 .note.pinned p {
   /* color: #5e503f; */
   color: #6b8e23;
-
 }
 
 .note.delete {
   opacity: 0;
   transform: scale(0.8); /* Shrink when deleting */
 }
+
+.react-hot-toast {
+  height: auto !important; 
+  max-height: 100px; /* Optional: Restrict max height */
+  overflow: hidden;
+  z-index: 9999; /* Ensure it appears above other elements */
+}
+

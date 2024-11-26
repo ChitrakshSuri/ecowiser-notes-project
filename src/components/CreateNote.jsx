@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
+import { toast } from "react-hot-toast"; // Import toast
 import "./CreateNote.css";
 
 const CreateNote = (props) => {
@@ -24,7 +25,7 @@ const CreateNote = (props) => {
 
   const addEvent = () => {
     if (!note.title || !note.tagline || !note.content) {
-      alert("Please fill out all the fields.");
+      toast.error("Please fill out all the fields."); // Replace alert with toast
       return;
     }
 
@@ -42,15 +43,13 @@ const CreateNote = (props) => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
     }
+
+    toast.success("Note added successfully!"); // Success toast
   };
 
   const expandIt = () => {
     setIsExpand(true); // Expand when clicking on the textarea
   };
-  console.log(note.title);
-  console.log(note.tagline);
-  console.log(note.content);
-
 
   return (
     <div className="main_note" onDoubleClick={() => setIsExpand(false)}>

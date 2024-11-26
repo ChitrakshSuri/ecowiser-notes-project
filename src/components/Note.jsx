@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-hot-toast"; // Import the toast function
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import "./Note.css";
@@ -10,14 +11,13 @@ const Note = (props) => {
 
   const deleteNote = (event) => {
     event.stopPropagation(); // Prevent triggering onEdit
-    const confirmationMessage = isPinned
-      ? "Are you sure you want to delete this PINNED note?"
-      : "Are you sure you want to delete this note?";
 
-    if (window.confirm(confirmationMessage)) {
-      setAnimationClass("delete");
-      setTimeout(() => deleteItem(id), 300); // Wait for animation before deletion
-    }
+    // Triggering a toast notification for delete action
+    toast.success(isPinned ? "Pinned note deleted!" : "Note deleted!");
+
+    // Add the delete animation and then delete the item
+    setAnimationClass("delete");
+    setTimeout(() => deleteItem(id), 300); // Wait for animation before deletion
   };
 
   const togglePin = (event) => {

@@ -1,9 +1,9 @@
 import Home from "./components/Home";
 import Header from "./components/Header";
-// import { Toaster } from "@/components/ui/toaster"
 
 import NoteParent from "./components/NoteParent";
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Home />
       <NoteParent />
-
+      <Toaster position="top-right"/>
     </>
   );
 };
