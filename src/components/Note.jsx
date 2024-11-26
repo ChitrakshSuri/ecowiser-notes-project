@@ -21,7 +21,7 @@ const Note = (props) => {
   };
 
   return (
-    <div className="note">
+    <div className={`note ${isPinned ? 'pinned' : ''}`}>
       <h1>{title}</h1>
       <p>{content}</p>
       <div className="note-actions">

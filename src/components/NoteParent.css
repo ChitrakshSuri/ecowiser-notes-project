@@ -1,6 +1,7 @@
 div {
   height: 100vh;
   /* background-color: #ECF39E; */
+  box-sizing: border-box;
 }
 
 .carousel {
@@ -37,4 +38,15 @@ div {
 .pagination-controls span {
   font-size: 1.2em;
   margin: 0 10px;
+}
+.footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 20px;
+  background-color: #344e41; 
+  color: white;
+  position: relative;
+  /* top: 45vh; */
+  bottom: 0vh;
+  width: 100%;
 }
