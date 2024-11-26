@@ -4,7 +4,7 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import "./Note.css";
 
 const Note = (props) => {
-  const { title, content, id, deleteItem, pinItem, isPinned } = props;
+  const { title, tagline, content, id, deleteItem, pinItem, isPinned } = props;
 
   const deleteNote = () => {
     const confirmationMessage = isPinned
@@ -12,7 +12,7 @@ const Note = (props) => {
       : "Are you sure you want to delete this note?";
 
     if (window.confirm(confirmationMessage)) {
-      deleteItem(id); // Use the unique ID
+      deleteItem(id);
     }
   };
 
@@ -21,8 +21,10 @@ const Note = (props) => {
   };
 
   return (
-    <div className={`note ${isPinned ? 'pinned' : ''}`}>
+    <div className={`note ${isPinned ? "pinned" : ""}`}>
       <h1>{title}</h1>
+      <h3>{tagline}</h3>
+      <hr />
       <p>{content}</p>
       <div className="note-actions">
         <button onClick={togglePin} className="btn pin-btn">

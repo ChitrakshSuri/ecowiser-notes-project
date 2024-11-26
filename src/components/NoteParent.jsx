@@ -67,6 +67,7 @@ function NoteParent() {
             key={note.id}
             id={note.id}
             title={note.title}
+            tagline={note.tagline}
             content={note.content}
             deleteItem={onDelete}
             pinItem={togglePin}

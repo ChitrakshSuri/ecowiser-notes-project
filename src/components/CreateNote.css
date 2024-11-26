@@ -18,6 +18,19 @@
   color: #344e41;
 }
 
+input[name="title"] {
+  font-size: 1.7rem; /* Adjust to a size between the heading and content */
+  font-weight: 800;
+  color: #6b8e23; /* Adjust the color to match your design */
+  margin: 10px 0;
+}
+input[name="tagline"] {
+  font-size: 1.2rem; /* Adjust to a size between the heading and content */
+  font-weight: 400;
+  color: #6b8e23; /* Adjust the color to match your design */
+  margin: 10px 0;
+}
+
 form {
   color: #6b8e23;
   padding: 0 15px;
@@ -49,20 +62,19 @@ input {
 }
 
 textarea {
-  resize: none; 
-  overflow: hidden; 
+  resize: none;
+  overflow: hidden;
   width: 100%;
   line-height: 1.5;
   background: transparent;
   border: none;
   outline: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #3c763d;
   font-family: "Jost", sans-serif;
   margin: 10px 0;
-  transition: height 0.2s ease-out; 
+  transition: height 0.2s ease-out;
 }
-
 
 .MuiButton-root {
   width: 30px;

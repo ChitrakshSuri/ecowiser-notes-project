@@ -15,18 +15,30 @@
 }
 
 .note h1 {
-  font-size: 1.1em;
-  margin-bottom: 6px;
-  color: #344e41;
+  font-size: 1.9em;
+  /* color: #344e41; */
+  color: #606c38;
   font-family: "Jost", sans-serif;
 }
-
+.note h3 {
+  font-size: 1.4em;
+  color: #457b9d;
+  font-family: "Jost", sans-serif;
+}
+.note hr {
+  border: none;
+  border-top: 1px solid #d4ccb5; 
+  margin: 5px 0;
+  width: 100%;
+  opacity: 0.8;
+  transition: border-color 0.3s ease;
+}
 .note p {
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  color: #6b8e23; /* Match the form's color */
+  color: #6b8e23; 
   font-family: "Jost", sans-serif;
 }
 
@@ -43,7 +55,7 @@
 .deleteIcon {
   width: 0.7em;
   height: 0.7em;
-  color: #3c763d; /* Match the button text color */
+  color: #3c763d; 
 }
 
 .note .btn:hover .deleteIcon {
@@ -87,6 +99,9 @@
 }
 .note.pinned h1 {
   color: #2f4f5e;
+}
+.note.pinned h3 {
+  color: #606c38;
 }
 
 .note.pinned p {

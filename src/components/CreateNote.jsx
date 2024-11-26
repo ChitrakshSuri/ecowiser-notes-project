@@ -7,6 +7,7 @@ const CreateNote = (props) => {
   const [isExpand, setIsExpand] = useState(false);
   const [note, setNotes] = useState({
     title: "",
+    tagline: "",
     content: "",
   });
 
@@ -22,14 +23,16 @@ const CreateNote = (props) => {
   };
 
   const addEvent = () => {
-    if (!note.title || !note.content) {
-      alert("Please fill out both the title and content.");
+    if (!note.title || !note.tagline || !note.content) {
+      alert("Please fill out all the fields.");
       return;
     }
 
+    // Pass note to parent component
     props.passNote(note);
     setNotes({
       title: "",
+      tagline: "",
       content: "",
     });
 
@@ -44,13 +47,17 @@ const CreateNote = (props) => {
   const expandIt = () => {
     setIsExpand(true); // Expand when clicking on the textarea
   };
+  console.log(note.title);
+  console.log(note.tagline);
+  console.log(note.content);
+
 
   return (
-    <>
-      <div className="main_note" onDoubleClick={() => setIsExpand(false)}>
-        <div className="create-note-heading">Create a New Note</div>
-        <form>
-          {isExpand && (
+    <div className="main_note" onDoubleClick={() => setIsExpand(false)}>
+      <div className="create-note-heading">Create a New Note</div>
+      <form>
+        {isExpand && (
+          <>
             <input
               type="text"
               placeholder="Title"
@@ -59,31 +66,39 @@ const CreateNote = (props) => {
               value={note.title}
               onChange={inputEvent}
             />
-          )}
+            <input
+              type="text"
+              placeholder="Tagline"
+              name="tagline"
+              autoComplete="off"
+              value={note.tagline}
+              onChange={inputEvent}
+            />
+          </>
+        )}
 
-          <br />
-          <textarea
-            ref={textareaRef}
-            placeholder="Take a note..."
-            rows="1"
-            name="content"
-            value={note.content}
-            onChange={inputEvent}
-            onClick={expandIt}
-            onInput={(e) => {
-              e.target.style.height = "auto"; // Reset height to adjust
-              e.target.style.height = `${e.target.scrollHeight}px`; // Adjust to content
-            }}
-          ></textarea>
+        <br />
+        <textarea
+          ref={textareaRef}
+          placeholder="Take a note..."
+          rows="1"
+          name="content"
+          value={note.content}
+          onChange={inputEvent}
+          onClick={expandIt}
+          onInput={(e) => {
+            e.target.style.height = "auto"; // Reset height to adjust
+            e.target.style.height = `${e.target.scrollHeight}px`; // Adjust to content
+          }}
+        ></textarea>
 
-          {isExpand && (
-            <Button onClick={addEvent}>
-              <AddIcon className="plus_sign" />
-            </Button>
-          )}
-        </form>
-      </div>
-    </>
+        {isExpand && (
+          <Button onClick={addEvent}>
+            <AddIcon className="plus_sign" />
+          </Button>
+        )}
+      </form>
+    </div>
   );
 };
 
