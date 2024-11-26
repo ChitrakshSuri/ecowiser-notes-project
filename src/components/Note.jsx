@@ -6,7 +6,8 @@ import "./Note.css";
 const Note = (props) => {
   const { title, tagline, content, id, deleteItem, pinItem, isPinned } = props;
 
-  const deleteNote = () => {
+  const deleteNote = (event) => {
+    event.stopPropagation(); // Prevent triggering onEdit
     const confirmationMessage = isPinned
       ? "Are you sure you want to delete this PINNED note?"
       : "Are you sure you want to delete this note?";
@@ -16,12 +17,16 @@ const Note = (props) => {
     }
   };
 
-  const togglePin = () => {
+  const togglePin = (event) => {
+    event.stopPropagation(); // Prevent triggering onEdit
     pinItem(id);
   };
 
   return (
-    <div className={`note ${isPinned ? "pinned" : ""}`}>
+    <div
+      className={`note ${isPinned ? "pinned" : ""}`}
+      onClick={() => props.onEdit()}
+    >
       <h1>{title}</h1>
       <h3>{tagline}</h3>
       <hr />

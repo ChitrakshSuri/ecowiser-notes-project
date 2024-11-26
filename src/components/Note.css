@@ -8,10 +8,15 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 15px;
   width: 360px;
+  /* resize: vertical; 
+  min-height: 150px; 
+  overflow: auto; 
+  box-sizing: border-box;  */
   margin: 5px;
   float: left;
   font-family: "Jost", sans-serif;
   transition: background-color 0.3s ease;
+  margin-bottom: 50px;
 }
 
 .note h1 {

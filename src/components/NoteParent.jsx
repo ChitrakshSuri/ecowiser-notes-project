@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import CreateNote from "./CreateNote";
 import Note from "./Note";
+import EditNoteModal from "./EditNoteModal";
 import "./NoteParent.css";
 
 const ITEMS_PER_PAGE = 6; // Maximum notes per page
@@ -9,6 +10,7 @@ const ITEMS_PER_PAGE = 6; // Maximum notes per page
 function NoteParent() {
   const [addItem, setAddItem] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [selectedNote, setSelectedNote] = useState(null); // Track the note being edited
 
   const addNote = (note) => {
     setAddItem((prevData) => {
@@ -38,6 +40,21 @@ function NoteParent() {
     );
   };
 
+  const openEditModal = (note) => {
+    setSelectedNote(note); // Set the selected note for editing
+  };
+
+  const closeEditModal = () => {
+    setSelectedNote(null); // Close the modal
+  };
+
+  const updateNote = (updatedNote) => {
+    setAddItem((oldData) =>
+      oldData.map((note) => (note.id === updatedNote.id ? updatedNote : note))
+    );
+    closeEditModal();
+  };
+
   const sortedNotes = [...addItem].sort((a, b) => b.pinned - a.pinned);
 
   const totalPages = Math.ceil(sortedNotes.length / ITEMS_PER_PAGE);
@@ -55,8 +72,6 @@ function NoteParent() {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
-  // const year = new Date().getFullYear(); 
-
   return (
     <div>
       <CreateNote passNote={addNote} />
@@ -72,6 +87,7 @@ function NoteParent() {
             deleteItem={onDelete}
             pinItem={togglePin}
             isPinned={note.pinned}
+            onEdit={() => openEditModal(note)} // Pass openEditModal
           />
         ))}
       </div>
@@ -86,9 +102,13 @@ function NoteParent() {
         </div>
       )}
 
-      {/* <footer className="footer">
-        <p>&copy; {year} Eco Notes. All rights reserved.</p>
-      </footer> */}
+      {selectedNote && (
+        <EditNoteModal
+          note={selectedNote}
+          onClose={closeEditModal}
+          onSave={updateNote}
+        />
+      )}
     </div>
   );
 }
