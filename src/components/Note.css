@@ -1,5 +1,5 @@
 .note {
-  background: rgba(245, 245, 220, 0.1); 
+  background: rgba(245, 245, 220, 0.1);
   /* background-color: #f7f4e0; */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -20,19 +20,19 @@
 }
 
 .note h1 {
-  font-size: 1.9em;
+  font-size: 2em;
   /* color: #344e41; */
   color: #606c38;
   font-family: "Jost", sans-serif;
 }
 .note h3 {
-  font-size: 1.4em;
+  font-size: 1.2em;
   color: #457b9d;
   font-family: "Jost", sans-serif;
 }
 .note hr {
   border: none;
-  border-top: 1px solid #d4ccb5; 
+  border-top: 1px solid #d4ccb5;
   margin: 5px 0;
   width: 100%;
   opacity: 0.8;
@@ -43,7 +43,9 @@
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  color: #6b8e23; 
+  /* color: #6b8e23; */
+    color: #5e503f;
+
   font-family: "Jost", sans-serif;
 }
 
@@ -60,7 +62,7 @@
 .deleteIcon {
   width: 0.7em;
   height: 0.7em;
-  color: #3c763d; 
+  color: #3c763d;
 }
 
 .note .btn:hover .deleteIcon {
@@ -92,17 +94,21 @@
 
 .pin-btn .MuiSvgIcon-root {
   color: grey;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .pin-btn .MuiSvgIcon-root.pinned {
   color: maroon;
+  transform: rotate(20deg);
 }
 
 .note.pinned {
   /* background-color: #efd9ce; */
   background-color: #f7f4e0;
-
+  transform: scale(1.02);
+}
+.note.unpinned {
+  transform: scale(1);
 }
 .note.pinned h1 {
   color: #2f4f5e;
@@ -112,5 +118,12 @@
 }
 
 .note.pinned p {
-  color: #5e503f;
+  /* color: #5e503f; */
+  color: #6b8e23;
+
+}
+
+.note.delete {
+  opacity: 0;
+  transform: scale(0.8); /* Shrink when deleting */
 }
