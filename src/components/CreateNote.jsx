@@ -23,28 +23,59 @@ const CreateNote = (props) => {
     }));
   };
 
-  const addEvent = () => {
+  const addEvent = async (event) => {
+    event.preventDefault();
+
+    // Validate fields before making API call
     if (!note.title || !note.tagline || !note.content) {
-      toast.error("Please fill out all the fields."); // Replace alert with toast
+      toast.error("Please fill out all the fields.");
       return;
     }
 
-    // Pass note to parent component
-    props.passNote(note);
-    setNotes({
-      title: "",
-      tagline: "",
-      content: "",
-    });
+    try {
+      const { title, tagline, content } = note;
+      const payload = {
+        title,
+        tagline,
+        content,
+        pinned: false, // Ensure the pinned attribute is always included
+      };
 
-    setIsExpand(false); // Collapse back to initial state
+      const res = await fetch(
+        "https://eco-notes-25efe-default-rtdb.firebaseio.com/notesDataRecord.json",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
-    // Reset textarea height
-    if (textareaRef.current) {
-      textareaRef.current.style.height = "auto";
+      if (res.ok) {
+        toast.success("Note added successfully!");
+
+        // =========error===========
+        // props.passNote(note);
+
+        // Reset note state
+        setNotes({
+          title: "",
+          tagline: "",
+          content: "",
+        });
+
+        setIsExpand(false); // Collapse back to initial state
+
+        // Reset textarea height
+        if (textareaRef.current) {
+          textareaRef.current.style.height = "auto";
+        }
+      } else {
+        toast.error("Failed to add note. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error adding note:", error);
+      toast.error("An error occurred while adding the note.");
     }
-
-    toast.success("Note added successfully!"); // Success toast
   };
 
   const expandIt = () => {

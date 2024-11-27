@@ -17,8 +17,8 @@ div {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   height: auto;
+  padding-bottom: 30px;
 }
 
 .pagination-controls button {
@@ -43,10 +43,15 @@ div {
   margin-top: 30px;
   text-align: center;
   padding: 20px;
-  background-color: #344e41; 
+  background-color: #344e41;
   color: white;
   position: relative;
   /* top: 45vh; */
   bottom: 0vh;
   width: 100%;
+}
+
+.disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
