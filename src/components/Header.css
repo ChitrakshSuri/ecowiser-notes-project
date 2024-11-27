@@ -1,17 +1,17 @@
 .header {
   width: 100%;
-  line-height: 100px;
+  /* line-height: 100px; */
   background-color: #457544;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 3vw;
   color: white;
-  height: 72px;
+  height: 9.9vh;
 }
 
 .header img {
-  height: 50px;
+  height: 7vh;
   border-radius: 50%;
 }
 
@@ -26,4 +26,76 @@
 
 .header .about:hover {
   font-size: 1.4rem;
+}
+
+/* General styles for desktop */
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 3vw; 
+    height: 9.9vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header img {
+    height: 7vh; 
+  }
+
+  .header .about {
+    font-size: 1.2rem; 
+  }
+}
+
+/* Tablet screens (Portrait and Landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    padding: 0 5vw; 
+    height: 8.5vh; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header img {
+    height: 6.5vh;
+  }
+
+  .header .about {
+    font-size: 1.1rem; 
+  }
+}
+
+/* Mobile screens (Portrait) */
+@media (max-width: 767px) {
+  .header {
+    padding: 0 4vw; 
+    height: auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+  .header img {
+    height: 6vh;
+  }
+
+  .header .about {
+    font-size: 1rem; 
+  }
+}
+
+/* Very small mobile screens (like iPhone SE) */
+@media (max-width: 375px) {
+  .header {
+    padding: 0 3vw;
+  }
+
+  .header img {
+    height: 5vh;
+  }
+
+  .header .about {
+    font-size: 0.9rem;
+  }
 }

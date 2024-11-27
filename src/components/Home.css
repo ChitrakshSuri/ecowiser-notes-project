@@ -5,19 +5,19 @@
 .home-cont {
   background-color: #457544;
   height: 90vh;
-  padding: 30px;
+  padding: 3vw;
+  padding-top: 7vw;
   box-sizing: border-box;
 }
+
 .company-name {
   font-family: "Whirly Birdie", sans-serif;
   color: #fefae0;
-  font-size: 20vh;
+  font-size: 18vh;
   font-weight: 700;
   height: auto;
 }
-.company-data-cont {
-  margin-top: 11vh;
-}
+
 .company-info {
   font-family: "Jost", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
@@ -31,11 +31,12 @@
   line-height: 4.5vh;
   width: 70%;
   text-align: justify;
+  height: auto;
 }
 
 .down-arrow-btn {
   position: absolute;
-  bottom: 10px;
+  bottom: 2vh;
   left: 50%;
   transform: translateX(-50%);
   font-size: 5vh;
@@ -45,12 +46,16 @@
   cursor: pointer;
   animation: bounce 1.5s infinite;
   outline: none;
-  height: 30px;
+  height: 5vh;
 }
 
 /* Bounce Animation */
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translate(-50%, 0);
   }
   40% {
@@ -61,3 +66,115 @@
   }
 }
 
+/* Desktop styles (Default) */
+@media (min-width: 1024px) {
+  .home-cont {
+    padding: 3vw;
+    padding-top: 7vw;
+  }
+
+  .company-name {
+    font-size: 18vh; 
+  }
+
+  .company-info {
+    font-size: 3.1vh; 
+    line-height: 4.5vh; 
+    width: 75%; 
+  }
+
+  .down-arrow-btn {
+    font-size: 5vh;
+  }
+}
+
+/* iPad Pro (Portrait and Landscape) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .home-cont {
+    padding: 4vw;
+    padding-top: 6vw;
+  }
+
+  .company-name {
+    font-size: 20vh;
+  }
+
+  .company-info {
+    font-size: 3.2vh;
+    line-height: 4vh;
+    width: 75%; 
+  }
+
+  .down-arrow-btn {
+    font-size: 4.5vh;
+  }
+}
+
+/* Tablet screens (Portrait and Landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-cont {
+    padding: 5vw;
+    padding-top: 6vw;
+  }
+
+  .company-name {
+    font-size: 14vh;
+  }
+
+  .company-info {
+    font-size: 2.8vh;
+    line-height: 4vh;
+    width: 80%; 
+  }
+
+  .down-arrow-btn {
+    font-size: 4.5vh; 
+  }
+}
+
+/* Mobile screens (Portrait) */
+@media (max-width: 767px) {
+  .home-cont {
+    padding: 6vw;
+    padding-top: 5vw;
+  }
+
+  .company-name {
+    font-size: 10vh; 
+    text-align: left; 
+  }
+
+  .company-info {
+    font-size: 2.5vh; 
+    line-height: 3.5vh; 
+    width: 90%;
+    text-align: justify; 
+  }
+
+  .down-arrow-btn {
+    font-size: 4vh; 
+    margin-bottom: 10px;
+  }
+}
+
+/* Very small mobile screens (like iPhone SE) */
+@media (max-width: 375px) {
+  .home-cont {
+    padding: 5vw;
+    padding-top: 4vw;
+  }
+
+  .company-name {
+    font-size: 8vh; 
+  }
+
+  .company-info {
+    font-size: 2.2vh; 
+    line-height: 3.2vh; 
+    width: 95%; 
+  }
+
+  .down-arrow-btn {
+    font-size: 3.5vh;
+  }
+}

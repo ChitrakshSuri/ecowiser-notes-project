@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-hot-toast"; // Import toast from react-hot-toast
 import "./EditNoteModal.css";
 
 const EditNoteModal = ({ note, onClose, onSave }) => {
@@ -25,6 +26,7 @@ const EditNoteModal = ({ note, onClose, onSave }) => {
 
   const handleSave = () => {
     onSave({ ...note, title, tagline, content }); // Save the updated note
+    toast.success("Note edited successfully!"); // Show success toaster
   };
 
   return (

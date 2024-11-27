@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { toast } from "react-hot-toast"; // Import toast
@@ -13,6 +13,7 @@ const CreateNote = (props) => {
   });
 
   const textareaRef = useRef(null); // Ref for the textarea
+  const formRef = useRef(null); // Ref for the form
 
   const inputEvent = (event) => {
     const { name, value } = event.target;
@@ -53,9 +54,6 @@ const CreateNote = (props) => {
       if (res.ok) {
         toast.success("Note added successfully!");
 
-        // =========error===========
-        // props.passNote(note);
-
         // Reset note state
         setNotes({
           title: "",
@@ -82,8 +80,40 @@ const CreateNote = (props) => {
     setIsExpand(true); // Expand when clicking on the textarea
   };
 
+  const handleClickOutside = (event) => {
+    if (formRef.current && !formRef.current.contains(event.target)) {
+      setIsExpand(false); // Collapse the form when clicking outside
+      resetTextareaHeight();
+    }
+  };
+
+  const handleEscKey = (event) => {
+    if (event.key === "Escape") {
+      setIsExpand(false); // Collapse the form on "Esc"
+      resetTextareaHeight();
+    }
+  };
+
+  const resetTextareaHeight = () => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height to default
+    }
+  };
+
+  useEffect(() => {
+    // Add event listeners for click outside and keydown (Escape)
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      // Clean up the event listeners on component unmount
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, []);
+
   return (
-    <div className="main_note" onDoubleClick={() => setIsExpand(false)}>
+    <div className="main_note" onDoubleClick={() => setIsExpand(false)} ref={formRef}>
       <div className="create-note-heading">Create a New Note</div>
       <form>
         {isExpand && (
