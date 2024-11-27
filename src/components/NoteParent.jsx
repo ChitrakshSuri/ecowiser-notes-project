@@ -15,6 +15,7 @@ function NoteParent() {
   const [addItem, setAddItem] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [selectedNote, setSelectedNote] = useState(null); // Track the note being edited
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const fetchNotes = async () => {
@@ -46,6 +47,15 @@ function NoteParent() {
 
     fetchNotes();
   }, [addItem]);
+
+  useEffect(() => {
+    if (isAnimating) {
+      const timeout = setTimeout(() => {
+        setIsAnimating(false); // Reset animation after transition
+      }, 500); // Matches the duration of your CSS transition (in ms)
+      return () => clearTimeout(timeout);
+    }
+  }, [isAnimating]);
 
   const addNote = async (note) => {
     const newNote = {
@@ -151,10 +161,12 @@ function NoteParent() {
   );
 
   const nextPage = () => {
+    setIsAnimating(true);
     setCurrentPage((prev) => (prev + 1) % totalPages);
   };
 
   const prevPage = () => {
+    setIsAnimating(true);
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
   };
 
@@ -162,7 +174,7 @@ function NoteParent() {
     <div>
       <CreateNote passNote={addNote} />
 
-      <div className="carousel">
+      <div className={`carousel ${isAnimating ? "fade-in" : "fade-in-active"}`}>
         {paginatedNotes.map((note) => (
           <Note
             key={note.id}
@@ -179,7 +191,7 @@ function NoteParent() {
       </div>
 
       {totalPages > 1 && (
-        <div className="pagination-controls">
+        <div className={`pagination-controls ${isAnimating ? "slide-in" : "slide-in-active"}`}>
           <button
             onClick={prevPage}
             disabled={currentPage === 0} // Disable Prev button when on the first page

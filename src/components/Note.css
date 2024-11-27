@@ -7,7 +7,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   padding: 15px;
-  width: 360px;
+  width: 30%;
+  /* width: 360px; */
   /* resize: vertical; 
   min-height: 150px; 
   overflow: auto; 
@@ -16,7 +17,8 @@
   float: left;
   font-family: "Jost", sans-serif;
   transition: background-color 0.3s ease;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  box-sizing: border-box;
 }
 
 .note h1 {
@@ -97,9 +99,14 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.pin-btn .MuiSvgIcon-root.pinned {
+.pin-btn .MuiSvgIcon-root:hover {
   color: maroon;
   transform: rotate(20deg);
+}
+
+.pin-btn .MuiSvgIcon-root.pinned {
+  color: maroon;
+  transform: rotate(380deg);
 }
 
 .note.pinned {
@@ -124,13 +131,93 @@
 
 .note.delete {
   opacity: 0;
-  transform: scale(0.8); /* Shrink when deleting */
+  transform: scale(0.8);
 }
 
 .react-hot-toast {
-  height: auto !important; 
-  max-height: 100px; /* Optional: Restrict max height */
+  height: auto !important;
+  max-height: 100px;
   overflow: hidden;
-  z-index: 9999; /* Ensure it appears above other elements */
+  z-index: 9999;
 }
 
+/* General reset for box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Desktop and large screens */
+@media (min-width: 1024px) {
+  .note {
+    width: 30%;
+    margin: 10px;
+  }
+}
+
+/* Tablet screens (Portrait and Landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .note {
+    width: 45%;
+    margin: 10px;
+  }
+
+  .note h1 {
+    font-size: 1.8em;
+  }
+
+  .note h3 {
+    font-size: 1em;
+  }
+
+  .note p {
+    font-size: 0.8em;
+  }
+}
+
+/* Mobile screens (Portrait) */
+@media (max-width: 767px) {
+  .note {
+    width: 90%;
+    margin: 10px auto;
+    float: none;
+  }
+
+  .note h1 {
+    font-size: 1.5em;
+  }
+
+  .note h3 {
+    font-size: 0.9em;
+  }
+
+  .note p {
+    font-size: 0.8em;
+  }
+
+  .note-actions {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .pin-btn,
+  .delete-btn {
+    margin-bottom: 5px;
+  }
+}
+
+/* Very small mobile screens (like iPhone SE) */
+@media (max-width: 375px) {
+  .note h1 {
+    font-size: 1.2em;
+  }
+
+  .note h3 {
+    font-size: 0.8em;
+  }
+
+  .note p {
+    font-size: 0.7em;
+  }
+}

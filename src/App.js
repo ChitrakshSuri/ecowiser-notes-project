@@ -11,7 +11,7 @@ const App = () => {
       <Header />
       <Home />
       <NoteParent />
-      <Toaster position="top-right"/>
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };

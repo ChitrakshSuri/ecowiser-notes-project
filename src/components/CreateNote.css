@@ -2,42 +2,31 @@
 @import url("https://fonts.cdnfonts.com/css/whirly-birdie");
 
 .main_note {
-  width: 500px;
-  padding: 15px 10px 5px 10px;
-  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* padding: 5px 10px; */
+  margin: 3vh auto;
   height: auto;
-  /* background-color: red; */
 }
 .create-note-heading {
-  /* margin-top: 70px; */
+  margin-top: 4vh;
   height: auto;
   font-family: "Whirly Birdie", sans-serif;
   text-align: center;
-  font-size: 40px;
-  margin-bottom: 50px;
+  font-size: 6vh;
+  margin-bottom: 4vh;
   color: #344e41;
 }
 
-input[name="title"] {
-  font-size: 1.7rem; /* Adjust to a size between the heading and content */
-  font-weight: 800;
-  color: #6b8e23; /* Adjust the color to match your design */
-  margin: 10px 0;
-}
-input[name="tagline"] {
-  font-size: 1.2rem; /* Adjust to a size between the heading and content */
-  font-weight: 400;
-  color: #6b8e23; /* Adjust the color to match your design */
-  margin: 10px 0;
-}
-
 form {
+  width: 40%;
   color: #6b8e23;
-  padding: 0 15px;
+  padding: 0 1vw;
   border-radius: 10px;
   border: 2px solid rgba(167, 201, 87, 0.5);
   position: relative;
-  margin: 0;
 
   /* Glassmorphism effect */
   background: rgba(245, 245, 220, 0.1);
@@ -50,12 +39,12 @@ form {
 
 input {
   width: 100%;
-  line-height: 30px;
+  /* line-height: 30px; */
   background: transparent;
   border: none;
   outline: none;
   font-size: 1.5rem;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   font-weight: bold;
   color: #3c763d;
   font-family: "Jost", sans-serif;
@@ -75,13 +64,27 @@ textarea {
   margin: 10px 0;
   transition: height 0.2s ease-out;
 }
+input[name="title"] {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #6b8e23;
+  margin: 10px 0;
+}
+input[name="tagline"] {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #6b8e23;
+  margin: 10px 0;
+}
 
 .MuiButton-root {
-  width: 30px;
+  /* width: 30px; */
   height: 60px;
   position: absolute;
-  bottom: -28px;
-  left: 430px;
+  /* bottom: -28px; */
+  bottom: -3vh;
+  /* left: 430px; */
+  left: 35vw;
   cursor: pointer;
   background-color: #fefae0 !important;
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.5);
@@ -104,4 +107,156 @@ textarea {
 .MuiButton-root:hover .plus_sign {
   color: #fefae0;
   background: transparent;
+}
+
+/* Desktop styles (Default) */
+@media (min-width: 1024px) {
+  .main_note {
+    margin: 3vh auto;
+  }
+
+  .create-note-heading {
+    font-size: 6vh; /* Default heading size */
+    margin-bottom: 4vh;
+  }
+
+  form {
+    width: 40%; /* Default form width */
+    padding: 0 1vw;
+  }
+
+  input[name="title"] {
+    font-size: 1.7rem; /* Default title font size */
+  }
+
+  input[name="tagline"] {
+    font-size: 1.2rem; /* Default tagline font size */
+  }
+
+  textarea {
+    font-size: 0.9rem; /* Default text size */
+  }
+
+  .MuiButton-root {
+    bottom: -3vh;
+    left: 35vw;
+  }
+
+  .MuiButton-root .plus_sign {
+    font-size: 30px;
+  }
+}
+
+/* Tablet screens (Portrait and Landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main_note {
+    margin: 2vh auto;
+  }
+
+  .create-note-heading {
+    font-size: 5vh; /* Slightly smaller heading size */
+    margin-bottom: 3vh;
+  }
+
+  form {
+    width: 60%; /* Increase form width for smaller screens */
+    padding: 0 2vw;
+  }
+
+  input[name="title"] {
+    font-size: 1.5rem; /* Adjust title font size */
+  }
+
+  input[name="tagline"] {
+    font-size: 1rem; /* Adjust tagline font size */
+  }
+
+  textarea {
+    font-size: 0.85rem; /* Adjust text size */
+  }
+
+  .MuiButton-root {
+    bottom: -3vh;
+    left: 30vw;
+  }
+
+  .MuiButton-root .plus_sign {
+    font-size: 28px;
+  }
+}
+
+/* Mobile screens (Portrait) */
+@media (max-width: 767px) {
+  .main_note {
+    margin: 1.5vh auto;
+  }
+
+  .create-note-heading {
+    font-size: 4.5vh; /* Smaller heading size */
+    margin-bottom: 2.5vh;
+  }
+
+  form {
+    width: 80%; /* Wider form width for better fit */
+    padding: 0 3vw;
+  }
+
+  input[name="title"] {
+    font-size: 1.3rem; /* Smaller title font size */
+  }
+
+  input[name="tagline"] {
+    font-size: 0.9rem; /* Smaller tagline font size */
+  }
+
+  textarea {
+    font-size: 0.8rem; /* Smaller text size */
+  }
+
+  .MuiButton-root {
+    bottom: -3vh;
+    left: 25vw;
+  }
+
+  .MuiButton-root .plus_sign {
+    font-size: 26px;
+  }
+}
+
+/* Very small mobile screens (like iPhone SE) */
+@media (max-width: 375px) {
+  .main_note {
+    margin: 1vh auto;
+  }
+
+  .create-note-heading {
+    font-size: 4vh; /* Smallest heading size */
+    margin-bottom: 2vh;
+  }
+
+  form {
+    width: 90%; /* Maximize form width for tiny screens */
+    padding: 0 4vw;
+  }
+
+  input[name="title"] {
+    font-size: 1.2rem; /* Smaller title font size */
+  }
+
+  input[name="tagline"] {
+    font-size: 0.8rem; /* Smallest tagline font size */
+  }
+
+  textarea {
+    font-size: 0.7rem; /* Smallest text size */
+  }
+
+  .MuiButton-root {
+    bottom: -3vh;
+    left: 20vw;
+  }
+
+  .MuiButton-root .plus_sign {
+    font-size: 24px;
+  }
 }
